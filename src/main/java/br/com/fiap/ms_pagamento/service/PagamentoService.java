@@ -2,6 +2,7 @@ package br.com.fiap.ms_pagamento.service;
 
 import br.com.fiap.ms_pagamento.dto.PagamentoDTO;
 import br.com.fiap.ms_pagamento.model.Pagamento;
+import br.com.fiap.ms_pagamento.model.Status;
 import br.com.fiap.ms_pagamento.repository.PagamentoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,26 @@ public class PagamentoService {
         );
 
         return new PagamentoDTO(entity);
+    }
+
+    @Transactional
+    public PagamentoDTO insert (PagamentoDTO dto) {
+        Pagamento entity = new Pagamento();
+        copyDtoToEntity(dto, entity);
+        entity = repository.save(entity);
+        return new PagamentoDTO(entity);
+    }
+
+    private void copyDtoToEntity(PagamentoDTO dto, Pagamento entity) {
+        entity.setValor(dto.getValor());
+        entity.setNome(dto.getNome());
+        entity.setNumeroCartao(dto.getNumeroCartao());
+        entity.setValidade(dto.getValidade());
+        entity.setCodigoSeguranca(dto.getCodigoSeguranca());
+        entity.setStatus(Status.CRIADO); //quando incluirmos o pagamento o status será CRIADO por default.
+        entity.setPedidoId(dto.getId());
+        entity.setFormaPagamento(dto.getIdformaPagamento());
+
     }
 
 }

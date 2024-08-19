@@ -53,4 +53,15 @@ public class PagamentoService {
 
     }
 
+    public void delete (Long id) {
+        if(!repository.existsById(id))
+            throw new EntityNotFoundException("Recurso nao encontrado!");
+        try {
+            repository.deleteById(id);
+        }
+        catch (EntityNotFoundException e) {
+            throw new EntityNotFoundException("Recurso nao encontrado!");
+        }
+    }
+
 }

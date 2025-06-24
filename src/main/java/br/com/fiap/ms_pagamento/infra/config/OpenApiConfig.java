@@ -1,4 +1,4 @@
-package br.com.fiap.ms_pagamento.config;
+package br.com.fiap.ms_pagamento.infra.config;
 
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;

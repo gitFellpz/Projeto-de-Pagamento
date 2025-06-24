@@ -1,4 +1,4 @@
-package br.com.fiap.ms_pagamento.config;
+package br.com.fiap.ms_pagamento.infra.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.web.config.EnableSpringDataWebSupport;

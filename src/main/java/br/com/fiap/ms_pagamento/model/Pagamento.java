@@ -12,7 +12,6 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 @Getter
 @Setter
-
 @Entity
 @Table(name = "tb_pagamento")
 public class Pagamento {
